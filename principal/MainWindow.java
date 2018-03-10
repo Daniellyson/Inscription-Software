@@ -2,6 +2,7 @@ package principal;
 
 import informations.Help;
 import informations.InfosIesn;
+import inscription.EnrolmentForm;
 import listener.WindowListener;
 
 import javax.swing.*;
@@ -30,7 +31,7 @@ public class MainWindow extends JFrame {
 
     public MainWindow() {
 
-        super("IESN");
+        super("College");
 
         setUpMenu();
         setUpMainWindow();
@@ -77,10 +78,11 @@ public class MainWindow extends JFrame {
         exit.addActionListener(controlerEvent);
         iesn.addActionListener(controlerEvent);
         help.addActionListener(controlerEvent);
+        studentInscription.addActionListener(controlerEvent);
     }
 
     public void setUpMainWindow() {
-        setBounds(100, 50, 500, 600);
+        setBounds(100, 50, 400, 500);
 
         WelcomePanel welcomePanel = new WelcomePanel();
 
@@ -108,7 +110,11 @@ public class MainWindow extends JFrame {
                 Help helpPanel = new Help();
                 helpPanel.setVisible(true);
             }
-
+            if(event.getSource() == studentInscription){
+                container.removeAll();
+                container.add(new EnrolmentForm());
+                container.revalidate();
+            }
         }
     }
 }

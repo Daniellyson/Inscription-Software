@@ -17,7 +17,7 @@ public class Help extends JFrame {
     private Container container;
 
    public Help() {
-       super("Help IESN");
+       super("Help");
 
        setBounds(50, 50, 600, 400);
 
