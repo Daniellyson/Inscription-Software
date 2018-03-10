@@ -80,7 +80,7 @@ public class MainWindow extends JFrame {
     }
 
     public void setUpMainWindow() {
-        setBounds(50, 50, 600, 400);
+        setBounds(100, 50, 500, 600);
 
         WelcomePanel welcomePanel = new WelcomePanel();
 
