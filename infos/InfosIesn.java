@@ -9,11 +9,11 @@ public class InfosIesn extends JPanel {
 
     public InfosIesn() {
 
-        title = new JLabel("Contact details : IESN");
+        title = new JLabel("Contact details");
         title.setFont(new Font("Times New Roman", Font.BOLD, 25));
 
-        text = new JLabel("<html>Address : Street Joseph Calozet, 19 - 5000 Namur<br>" +
-                "Tel : +32 (0)81 46 86 10<br>" +
+        text = new JLabel("<html>Address : Street Neverland, 00 - 0000 Belgium<br>" +
+                "Tel : +32 (0)00 00 00 00<br>" +
                 "Web site : www.henallux.be</html>");
         text.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 
