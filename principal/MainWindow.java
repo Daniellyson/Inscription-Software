@@ -87,7 +87,6 @@ public class MainWindow extends JFrame {
         WelcomePanel welcomePanel = new WelcomePanel();
 
         addWindowListener(new WindowListener());
-        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         container = this.getContentPane();
         container.add(welcomePanel);
