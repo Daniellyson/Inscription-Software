@@ -31,7 +31,7 @@ public class MainWindow extends JFrame {
 
     public MainWindow() {
 
-        super("College");
+        super("IESN");
 
         setUpMenu();
         setUpMainWindow();
@@ -57,13 +57,13 @@ public class MainWindow extends JFrame {
         studentMenu.setMnemonic('s');
         menuBar.add(studentMenu);
 
-        studentInscription = new JMenuItem("Inscription");
+        studentInscription = new JMenuItem("Enrolment");
         studentMenu.add(studentInscription);
 
         //TO DO Inscription
 
         //INFORMATIONS
-        infosMenu = new JMenu("Informations");
+        infosMenu = new JMenu("Information");
         infosMenu.setMnemonic('i');
         menuBar.add(infosMenu);
 
@@ -87,6 +87,7 @@ public class MainWindow extends JFrame {
         WelcomePanel welcomePanel = new WelcomePanel();
 
         addWindowListener(new WindowListener());
+        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         container = this.getContentPane();
         container.add(welcomePanel);
