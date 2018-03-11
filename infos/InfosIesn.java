@@ -9,7 +9,7 @@ public class InfosIesn extends JPanel {
 	private JLabel webLabel;
 
     public InfosIesn() {
-        webLabel = new JLabel("http://www.website.com");
+        webLabel = new JLabel("www.website.com");
 
         text = new JLabel("<html> <br> <b> Contact details </b> <br><br>" +
                 "Address : Street de la Pluie, 00 - 0000 Belgium<br>" +
