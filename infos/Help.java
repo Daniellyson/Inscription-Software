@@ -23,7 +23,7 @@ public class Help extends JFrame {
 
        addWindowListener(new WindowListener());
 
-       helpText = new JLabel("Go to the student secretariat to get help !");
+       helpText = new JLabel("Go to the student secretariat to get help!");
        helpText.setFont(new Font("Times New Roman", Font.BOLD, 20));
        helpText.setHorizontalAlignment(SwingConstants.CENTER);
 
