@@ -31,7 +31,7 @@ public class MainWindow extends JFrame {
 
     public MainWindow() {
 
-        super("IESN");
+        super("College");
 
         setUpMenu();
         setUpMainWindow();
@@ -59,8 +59,6 @@ public class MainWindow extends JFrame {
 
         studentInscription = new JMenuItem("Enrolment");
         studentMenu.add(studentInscription);
-
-        //TO DO Inscription
 
         //INFORMATIONS
         infosMenu = new JMenu("Information");
