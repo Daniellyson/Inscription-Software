@@ -1,23 +1,25 @@
 package enrolment;
 
+import principal.MainWindow;
+import principal.WelcomePanel;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 
 public class EnrolmentForm extends JPanel {
     private JPanel formPanel;
     private JPanel buttonPanel;
 
-    //private Container container;
-
     private JLabel registrationNumberLabel;
-    private JLabel firtNameLabel;
+    private JLabel firstNameLabel;
     private JLabel lastNameLabel;
     private JLabel birthdayLabel;
     private JLabel sectionLabel;
 
     private JTextField registrationNumber;
-    private JTextField firtName;
+    private JTextField firstName;
     private JTextField lastName;
     private JTextField birthday;
     private JTextField section;
@@ -25,34 +27,43 @@ public class EnrolmentForm extends JPanel {
     private JCheckBox scholarshipHolder;
     private JCheckBox foreign;
 
+    private ActionCheckBox actionCheckBox;
+
     private JLabel originLabel;
     private JComboBox origin;
 
     private ButtonGroup enrolomentButtonGroup;
-    private JRadioButton newEnrolment;
+    private JRadioButton newStudent;
     private JRadioButton reEnrolment;
 
+    private JButton returnButton;
+    private JButton validationButton;
+    private JButton resetButton;
 
-    public EnrolmentForm(){
+    private Container container;
 
-        //setLayout(new BorderLayout());
+    public EnrolmentForm(Container container){
 
-        formPanel = new JPanel(new GridLayout(8, 2, 10, 15));
+        formPanel = new JPanel(new GridLayout(8, 2, 10, 22));
         add(formPanel, BorderLayout.CENTER);
 
-        //TO DO buttonPanel
+        buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 30));
+        add(buttonPanel, BorderLayout.SOUTH);
 
         registrationNumberLabel = new JLabel("Registration Number: ");
         registrationNumberLabel.setHorizontalAlignment(JLabel.RIGHT);
         formPanel.add(registrationNumberLabel);
         registrationNumber = new JTextField(15);
         formPanel.add(registrationNumber);
+        registrationNumber.addActionListener(new ActionRegistrationNumber());
 
-        firtNameLabel = new JLabel("First name:");
-        firtNameLabel.setHorizontalAlignment(JLabel.RIGHT);
-        formPanel.add(firtNameLabel);
-        firtName = new JTextField(15);
-        formPanel.add(firtName);
+
+        firstNameLabel = new JLabel("First name:");
+        firstNameLabel.setHorizontalAlignment(JLabel.RIGHT);
+        formPanel.add(firstNameLabel);
+        firstName = new JTextField(15);
+        formPanel.add(firstName);
+
 
         lastNameLabel = new JLabel("Last name:");
         lastNameLabel.setHorizontalAlignment(JLabel.RIGHT);
@@ -63,48 +74,65 @@ public class EnrolmentForm extends JPanel {
         birthdayLabel = new JLabel("Birthday:");
         birthdayLabel.setHorizontalAlignment(JLabel.RIGHT);
         formPanel.add(birthdayLabel);
-        birthday = new JTextField();
+        birthday = new JTextField(15);
         formPanel.add(birthday);
 
         sectionLabel = new JLabel("Section:");
         sectionLabel.setHorizontalAlignment(JLabel.RIGHT);
         formPanel.add(sectionLabel);
         section = new JTextField(15);
+        section.setEnabled(false);
         formPanel.add(section);
+
+        //for the foreign, newStudent, scholarshipHolder
+        actionCheckBox = new ActionCheckBox();
 
         scholarshipHolder = new JCheckBox("Scholarship Holder");
         formPanel.add(scholarshipHolder);
-
-        //TO DO Listener ↓↑
+        scholarshipHolder.addItemListener(actionCheckBox);
 
         foreign = new JCheckBox("Foreign");
         formPanel.add(foreign);
+        foreign.addItemListener(actionCheckBox);
+
 
         originLabel = new JLabel("Origin:");
         originLabel.setHorizontalAlignment(JLabel.RIGHT);
         formPanel.add(originLabel);
 
-        //TO DO Listener ↓↑
-
         String [] values = getListComboBox();
 
         origin = new JComboBox(values);
         formPanel.add(origin);
+        origin.setEnabled(false);
 
-        newEnrolment = new JRadioButton("New Enrolment");
-        formPanel.add(newEnrolment);
 
-        //TO DO Listener ↓↑
+        newStudent = new JRadioButton("New student");
+        formPanel.add(newStudent);
+        newStudent.addItemListener(actionCheckBox);
 
         reEnrolment = new JRadioButton("Re-enrolment");
         formPanel.add(reEnrolment);
 
         //Only one radio button at once
         enrolomentButtonGroup = new ButtonGroup();
-        enrolomentButtonGroup.add(newEnrolment);
+        enrolomentButtonGroup.add(newStudent);
         enrolomentButtonGroup.add(reEnrolment);
 
+        //Buttons South
+        returnButton = new JButton("Return");
+        buttonPanel.add(returnButton);
+        returnButton.addActionListener(new ButtonsActionListener());
 
+        validationButton = new JButton("Validation");
+        buttonPanel.add(validationButton);
+        validationButton.addActionListener(new ButtonsActionListener());
+
+        resetButton = new JButton("Reset");
+        buttonPanel.add(resetButton);
+        resetButton.addActionListener(new ButtonsActionListener());
+
+        this.container = container;
     }
 
     public String [] getListComboBox() {
