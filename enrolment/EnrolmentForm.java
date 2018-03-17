@@ -140,41 +140,41 @@ public class EnrolmentForm extends JPanel {
         return values;
     }
 	
-	private class ActionRegistrationNumber implements ActionListener {
+private class ActionRegistrationNumber implements ActionListener {
 
-        public void actionPerformed(ActionEvent event) {
+	public void actionPerformed(ActionEvent event) {
 
-            if(event.getSource() == registrationNumber) {
-                int firstNumber = Character.getNumericValue(registrationNumber.getText().charAt(0));
-                //int firstNumber = Integer.parseInt(registrationNumber.getText());
-                //firstNumber /= 1000;
-                switch (firstNumber) {
-                    case 1 :
-                        section.setText("Thechnologie de l'informatique");
-                        break;
-                    case 2 :
-                        section.setText("Matematique de gestion");
-                        break;
-                    case 3 :
-                        section.setText("Comptabilité");
-                        break;
-                    case 4 :
-                        section.setText("Marketing");
-                        break;
-                    case 5 :
-                        section.setText("Automation");
-                        break;
-                    case 6 :
-                        section.setText("Droit");
-                        break;
-                    case 7 :
-                        section.setText("Régendat");
-                        break;
-                    default:
-                        JOptionPane.showMessageDialog(null, "Registration Number", "Error", JOptionPane.ERROR_MESSAGE);
+		if(event.getSource() == registrationNumber) {
+			int firstNumber = Character.getNumericValue(registrationNumber.getText().charAt(0));
+			//int firstNumber = Integer.parseInt(registrationNumber.getText());
+			//firstNumber /= 1000;
+			switch (firstNumber) {
+				case 1 :
+					section.setText("Thechnologie de l'informatique");
+					break;
+				case 2 :
+					section.setText("Matematique de gestion");
+					break;
+				case 3 :
+					section.setText("Comptabilité");
+					break;
+				case 4 :
+					section.setText("Marketing");
+					break;
+				case 5 :
+					section.setText("Automation");
+					break;
+				case 6 :
+					section.setText("Droit");
+					break;
+				case 7 :
+					section.setText("Régendat");
+					break;
+				default:
+					JOptionPane.showMessageDialog(null, "Registration Number", "Error", JOptionPane.ERROR_MESSAGE);
 
-                }
-            }
-        }
-    }
+			}
+		}
+	}
+}
 }
