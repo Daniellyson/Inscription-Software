@@ -177,4 +177,26 @@ public class EnrolmentForm extends JPanel {
 			}
 		}
 	}
+	
+	private class ActionCheckBox implements ItemListener {
+
+        public void itemStateChanged(ItemEvent event) {
+            if(event.getSource() == foreign) {
+                if(event.getStateChange() == ItemEvent.SELECTED) {
+                    origin.setEnabled(true);
+                }
+                else {
+                    origin.setEnabled(false);
+                }
+            }
+            if(event.getSource() == newStudent || event.getSource() == scholarshipHolder) {
+                if(newStudent.isSelected() && scholarshipHolder.isSelected()) {
+                    //Boolean test
+                    JOptionPane.showMessageDialog(null, "Hello, you are invited to go to the secretariat",
+                            "Information", JOptionPane.INFORMATION_MESSAGE);
+                    scholarshipHolder.setSelected(true);
+                }
+            }
+        }
+    }
 }
