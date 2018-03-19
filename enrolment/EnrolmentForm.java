@@ -199,4 +199,42 @@ public class EnrolmentForm extends JPanel {
             }
         }
     }
+	
+	private class ButtonsActionListener implements ActionListener {
+
+        public void actionPerformed(ActionEvent event) {
+            if(event.getSource() == returnButton) {
+                container.removeAll();
+
+                WelcomePanel welcomePanel = new WelcomePanel();
+                Images imageLogo = new Images();
+
+                container.add(imageLogo.getImageLogo(), BorderLayout.NORTH);
+                container.add(welcomePanel, BorderLayout.CENTER);
+                setVisible(true);
+                welcomePanel.revalidate();
+            }
+            if(event.getSource() == validationButton) {
+                Student student;
+                student = new Student(registrationNumber.getText(), firstName.getText(), lastName.getText(),
+                        birthday.getText(), section.getText(), scholarshipHolder.isSelected(), foreign.isSelected(),
+                        (String)origin.getSelectedItem());
+
+                JOptionPane.showMessageDialog(null, student, "Student Enroled", JOptionPane.INFORMATION_MESSAGE,
+                        images.getImageIconEnroled());
+            }
+            if(event.getSource() == resetButton) {
+                registrationNumber.setText(null);
+                firstName.setText(null);
+                lastName.setText(null);
+                birthday.setText(null);
+                section.setText(null);
+                scholarshipHolder.setSelected(false);
+                foreign.setSelected(false);
+                origin.setSelectedItem("Europe");
+                newStudent.setSelected(false);
+                reEnrolment.setSelected(false);
+            }
+        }
+    }
 }
