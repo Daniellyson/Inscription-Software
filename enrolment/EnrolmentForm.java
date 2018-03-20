@@ -201,6 +201,8 @@ public class EnrolmentForm extends JPanel {
     }
 	
 	private class ButtonsActionListener implements ActionListener {
+		
+		private boolean erase;
 
         public void actionPerformed(ActionEvent event) {
             if(event.getSource() == returnButton) {
@@ -222,8 +224,10 @@ public class EnrolmentForm extends JPanel {
 
                 JOptionPane.showMessageDialog(null, student, "Student Enroled", JOptionPane.INFORMATION_MESSAGE,
                         images.getImageIconEnroled());
+						
+				erase = true;
             }
-            if(event.getSource() == resetButton) {
+            if(event.getSource() == resetButton || erase) {
                 registrationNumber.setText(null);
                 firstName.setText(null);
                 lastName.setText(null);
