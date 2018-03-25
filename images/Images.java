@@ -9,9 +9,9 @@ public class Images extends JPanel {
     private ImageIcon imageLogo;
 
     public Images() {
-        imageIconEnroled = new ImageIcon(("src/myPics/check.png"));
+        imageIconEnroled = new ImageIcon(("src/icons/check.png"));
 
-        imageLogo = new ImageIcon("src/myPics/logo.png");
+        imageLogo = new ImageIcon("src/icons/logo.png");
     }
 
     public ImageIcon getImageIconEnroled() {
